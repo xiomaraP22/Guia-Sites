@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guía Interactiva: Google Sites</title>
+  <style>
+    :root{
+      --primary:#6a1b9a;      /* Morado principal */
+      --secondary:#9c27b0;    /* Morado claro */
+      --accent:#d500f9;       /* Rosa fuerte */
+      --bg:#f8f6fc;
+      --card:#ffffff;
+      --text:#2d1f33;
+    }
+    *{box-sizing:border-box}
+    body{font-family:"Segoe UI", Poppins, sans-serif; margin:0; background:var(--bg); color:var(--text); line-height:1.5}
+    
+    header{background:linear-gradient(90deg,var(--primary),var(--secondary)); color:#fff; padding:40px 20px; text-align:center}
+    header h1{margin:0; font-size:2rem; letter-spacing:-0.5px}
+    header p{opacity:.9; margin-top:6px; font-size:1.1rem}
+    
+    .container{max-width:1100px; margin:20px auto; padding:0 16px}
+    .layout{display:grid; grid-template-columns: 260px 1fr; gap:20px; align-items:start}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
+    
+    .toc{background:var(--card); padding:16px; border-radius:14px; box-shadow:0 6px 20px rgba(106,27,154,.2); position:sticky; top:20px}
+    .toc h3{margin:0 0 12px; font-size:1rem; color:var(--primary)}
+    .toc ul{padding:0; margin:0; list-style:none}
+    .toc a{display:block; padding:8px 12px; border-radius:8px; text-decoration:none; color:var(--text); transition:.2s}
+    .toc a:hover{background:rgba(156,39,176,.1); color:var(--primary)}
+    
+    main{padding:20px; background:var(--card); border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); animation:fadeIn .8s ease}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(12px)}to{opacity:1; transform:translateY(0)}}
+    section{margin-bottom:28px}
+    h2{color:var(--primary); margin-top:0}
+    
+    .step{border:2px solid rgba(156,39,176,.2); border-radius:12px; padding:12px; background:linear-gradient(180deg,#fff,#faf5ff)}
+    details{margin:8px 0; padding:6px}
+    details summary{cursor:pointer; font-weight:600; color:var(--secondary)}
+    details[open]{background:rgba(156,39,176,.05); border-radius:8px}
+    
+    .code{background:#2d1f33; color:#f3e5f5; padding:10px; border-radius:10px; font-family:monospace; font-size:.92rem; overflow:auto}
+    .btn{display:inline-block; padding:8px 14px; margin-top:6px; border-radius:10px; cursor:pointer; border:none; font-weight:600; transition:.2s}
+    .btn.primary{background:var(--primary); color:#fff}
+    .btn.primary:hover{background:var(--secondary)}
+    .btn.ghost{background:transparent; color:var(--primary); border:2px solid var(--primary)}
+    .btn.ghost:hover{background:rgba(156,39,176,.08)}
+    
+    .checklist{margin-top:10px}
+    .check-item{display:flex; align-items:center; gap:10px; padding:8px; border-radius:8px; background:rgba(156,39,176,.05); margin-bottom:6px}
+    input[type=checkbox]{accent-color:var(--primary); width:18px; height:18px}
+    
+    .quiz{margin-top:14px; padding:12px; background:rgba(156,39,176,.08); border-radius:12px}
+    .quiz h4{margin:0 0 8px}
+    .result{padding:10px; border-radius:8px; margin-top:10px; font-weight:600}
+    
+    .img-center{display:block; margin:14px auto; border-radius:12px; max-width:100%; box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    
+    footer{margin-top:20px; font-size:.85rem; color:#555; text-align:center; padding:16px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Guía práctica de Google Sites</h1>
+    <p>Aprende paso a paso a crear tu propio sitio web interactivo</p>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="toc">
+        <h3>📑 Contenido</h3>
+        <ul>
+          <li><a href="#intro">Introducción</a></li>
+          <li><a href="#acceso">Acceso y creación</a></li>
+          <li><a href="#interfaz">Interfaz</a></li>
+          <li><a href="#construccion">Construcción</a></li>
+          <li><a href="#actividades">Actividades</a></li>
+          <li><a href="#buenas">Buenas prácticas</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+        </ul>
+        <button class="btn primary" id="printBtn">📄 Imprimir / PDF</button>
+        <button class="btn ghost" id="resetProgress">♻️ Reset progreso</button>
+      </aside>
+
+      <main>
+        <section id="intro">
+          <h2>1. Introducción</h2>
+          <p>Google Sites es una herramienta gratuita de Google para crear páginas web sin necesidad de programar. Perfecta para <strong>portafolios, intranets, páginas escolares o proyectos rápidos</strong>.</p>
+        </section>
+
+        <section id="acceso">
+          <h2>2. Acceso y creación</h2>
+          <div class="step">
+            <details open>
+              <summary>Cómo acceder y crear tu primer sitio</summary>
+              <ol>
+                <li>Ir a <code>sites.google.com</code></li>
+                <li>Hacer clic en <strong>+ Crear</strong> o elegir una plantilla</li>
+                <li>Asignar un nombre al sitio</li>
+              </ol>
+              <img src="images/creacion.png" alt="Acceso y creación" class="img-center">
+              <div class="code" id="snippet1">
+Título del sitio: Portafolio - [Tu nombre]
+              </div>
+              <button class="btn primary" data-copy="#snippet1">Copiar</button>
+            </details>
+          </div>
+        </section>
+
+        <section id="interfaz">
+          <h2>3. Interfaz principal</h2>
+          <div class="step">
+            <details>
+              <summary>Paneles principales</summary>
+              <ul>
+                <li><b>Insertar:</b> texto, imágenes, Drive, videos <br><img src="images/insertar.png" class="img-center"></li>
+                <li><b>Páginas:</b> estructura y navegación <br><img src="images/pagina.png" class="img-center"></li>
+                <li><b>Temas:</b> colores y tipografías <br><img src="images/temas.png" class="img-center"></li>
+              </ul>
+            </details>
+          </div>
+        </section>
+
+        <section id="construccion">
+          <h2>4. Construcción del sitio</h2>
+          <div class="step">
+            <details><summary>Paso 1: Encabezado</summary>Agrega título, logo y banner.<br><img src="images/paso1.png" class="img-center"></details>
+            <details><summary>Paso 2: Contenido</summary>Inserta texto, imágenes, documentos de Google, videos y mapas.<br><img src="images/paso2.png" class="img-center"></details>
+            <details><summary>Paso 3: Páginas</summary>Crea subpáginas como "Sobre mí", "Proyectos" y "Contacto".<br><img src="images/paso3.png" class="img-center"></details>
+            <details><summary>Paso 4: Publicar</summary>Revisa vista previa, configura permisos y pulsa <b>Publicar</b>.<br><img src="images/paso4.png" class="img-center"></details>
+          </div>
+
+          <h4>Checklist</h4>
+          <div class="checklist" id="checklist">
+            <label class="check-item"><input type="checkbox" data-key="c1"> Crear sitio nuevo</label>
+            <label class="check-item"><input type="checkbox" data-key="c2"> Añadir título y banner</label>
+            <label class="check-item"><input type="checkbox" data-key="c3"> Crear 3 páginas</label>
+            <label class="check-item"><input type="checkbox" data-key="c4"> Insertar formulario</label>
+            <label class="check-item"><input type="checkbox" data-key="c5"> Publicar y compartir</label>
+          </div>
+        </section>
+
+        <section id="actividades">
+          <h2>5. Actividades prácticas</h2>
+          <ol>
+            <li>Crear un portafolio personal</li>
+            <li>Añadir mínimo 2 subpáginas</li>
+            <li>Insertar un Google Form en “Contacto”</li>
+            <li>Publicar y compartir el link</li>
+          </ol>
+
+          <div class="quiz">
+            <h4>Mini-Quiz</h4>
+            <p><b>1. ¿Dónde insertas un Google Doc?</b></p>
+            <label><input type="radio" name="q1" value="a"> Insertar → Drive</label><br>
+            <label><input type="radio" name="q1" value="b"> En Temas</label><br>
+            <label><input type="radio" name="q1" value="c"> En Páginas</label>
+
+            <p><b>2. ¿Qué panel permite cambiar colores y tipografía?</b></p>
+            <label><input type="radio" name="q2" value="a"> Insertar</label><br>
+            <label><input type="radio" name="q2" value="b"> Temas</label><br>
+            <label><input type="radio" name="q2" value="c"> Páginas</label>
+
+            <p><b>3. ¿Qué debes hacer antes de publicar tu sitio?</b></p>
+            <label><input type="radio" name="q3" value="a"> Revisar vista previa y permisos</label><br>
+            <label><input type="radio" name="q3" value="b"> Insertar un Google Form obligatorio</label><br>
+            <label><input type="radio" name="q3" value="c"> Cambiar tema a oscuro</label>
+            
+            <br><button class="btn primary" id="checkQuiz">Revisar</button>
+            <div id="quizResult"></div>
+          </div>
+        </section>
+
+        <section id="buenas">
+          <h2>6. Buenas prácticas</h2>
+          <ul>
+            <li>Mantén un diseño limpio</li>
+            <li>Usa imágenes ligeras</li>
+            <li>Verifica permisos antes de compartir</li>
+          </ul>
+        </section>
+
+        <section id="recursos">
+          <h2>7. Recursos</h2>
+          <p>👉 <a href="https://support.google.com/sites" target="_blank">Centro de ayuda de Google Sites</a></p>
+        </section>
+
+        <footer>© 2025 - Material de capacitación Google Sites</footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Copiar snippets
+    document.querySelectorAll('[data-copy]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const sel=document.querySelector(btn.dataset.copy);
+        navigator.clipboard.writeText(sel.textContent.trim());
+        btn.textContent="✅ Copiado";
+        setTimeout(()=>btn.textContent="Copiar",1200);
+      });
+    });
+
+    // Checklist con localStorage
+    const checks=document.querySelectorAll('#checklist input[type=checkbox]');
+    function load(){checks.forEach(c=>c.checked=localStorage.getItem(c.dataset.key)==="1");}
+    function save(e){localStorage.setItem(e.target.dataset.key,e.target.checked?"1":"0");}
+    checks.forEach(c=>c.addEventListener("change",save));
+    load();
+    document.getElementById('resetProgress').onclick=()=>{localStorage.clear();checks.forEach(c=>c.checked=false)};
+
+    // Quiz
+    document.getElementById('checkQuiz').onclick=()=>{
+      const res=document.getElementById('quizResult');
+      let score=0;
+      const answers={q1:"a", q2:"b", q3:"a"};
+      Object.keys(answers).forEach(q=>{
+        const sel=document.querySelector(`input[name=${q}]:checked`);
+        if(sel && sel.value===answers[q]) score++;
+      });
+      if(score===3){res.innerHTML="<div class='result' style='background:#d4edda;color:#155724'>🎉 ¡Perfecto! 3/3 correctas</div>";}
+      else{res.innerHTML=`<div class='result' style='background:#fff3cd;color:#856404'>Obtuviste ${score}/3 correctas. Revisa de nuevo 😉</div>`;}
+    };
+
+    // Imprimir
+    document.getElementById('printBtn').onclick=()=>window.print();
+  </script>
+</body>
+</html>
